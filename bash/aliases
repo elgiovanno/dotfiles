@@ -1,0 +1,48 @@
+# aliases for seeing system details from top
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+
+# CD aliases
+alias .='pwd'
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias ..6="cd ../../../../../.."
+
+# LS aliases
+alias l="ls -lhFG"
+alias la="ls -lahFG"
+
+# Utilities
+alias c='clear'
+alias e='exit'
+# alias rm='rm -i'
+# alias mv='mv -i'
+# alias cp='cp -i'
+
+
+# Launch Vim
+alias v="vim"
+alias sv="sudo vim"
+
+# mkdir + cd(to the made dir)
+function mkdircd () {
+	mkdir -p "$@" && eval cd "\"\$$#\"";
+}
+
+# CD to ~/.dotfiles
+alias cdb="cd ~/.dotfiles"
+
+# Mercurial
+alias cino="hg ci -m \"<no commit message>\""
+alias hgup="hg update"
+
+# cd to ~/Projects
+alias code="cd ~/Projects"
+
+# cd to ~/Documents/Projects/Questable/android
+alias kizmet-android="cd ~/Documents/Projects/Questable/Kizmet/android"
+
+alias dn="ssh giova@giova.drsnwk.com"
