@@ -21,39 +21,45 @@ filetype plugin indent on    " required
 
 syntax enable
 
-set backspace=indent,eol,start			"Make backspace like other editors
-let mapleader = ','						"Set leader key to comma
-set number								"Add line numbers
-set linespace=15						"GUI-specific line height
-set tabstop=4						    "four tab spaces
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smartindent
-set smarttab
-set autoindent
-set expandtab
-set autoread
-set incsearch
-set ignorecase
-set smartcase
-set nowrap
-set autoread
+set backspace=indent,eol,start          "Make backspace like other editors
+let mapleader = ','                     "Set leader key to comma
+set nonumber                              "Add line numbers
+set linespace=15                        "GUI-specific line height
+set nowrap                              "no line wrapping
 set timeoutlen=200
 set showcmd                             "display incomplete commands 
 "set cursorline
 set nobackup                            "don't make any backups please
 set nowritebackup
 set noswapfile
+set noerrorbells visualbell t_bv=       "Get rid of bells!!!
+
+
+
+"----------- Tabs and Indents ------------"
+set tabstop=8
+set expandtab
+set softtabstop=4
+set shiftwidth=4
 
 
 
 "----------- Visuals ------------"
-set t_CO=256							"Use 256 colors in terminal vim
+set t_CO=256                                            "Use 256 colors in terminal vim
 colorscheme atom-dark-256				"Set color theme
 set guifont=Fira_Code					"Set Font
+
+"fake custom left padding for each window
+hi LineNr ctermbg=bg                                   
+set foldcolumn=2
+hi foldcolumn ctermbg=bg
+
+"remove split bar
+hi vertsplit ctermfg=bg ctermbg=bg
+
+""
+hi StatusLine ctermfg=grey ctermbg=bg
+hi StatusLineNC ctermfg=bg ctermbg=grey
 
 
 
@@ -70,10 +76,10 @@ set splitbelow							"horizontal splits open below current buffer
 set splitright							"vertical splits open to the right of current bufer
 
 "easier split navigation
-nmap <C-h> <C-w>h  					
-nmap <C-j> <C-w>j  
-nmap <C-k> <C-w>k  
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j h
+nnoremap <C-k> <C-W>k h
+nnoremap <C-l> <C-W>l
 
 
 
@@ -108,3 +114,10 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup end
+
+"----------- Reminders ------------"
+"zz takes the current cursor line to the middle
+"sbuffer # for splitting a buffer from a list
+"<C-W> | to make current split take up full screen
+"ca( or [ or { or tag to change everything inside AND the symbol
+
