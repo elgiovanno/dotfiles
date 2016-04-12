@@ -93,20 +93,20 @@ nnoremap <C-l> <C-W>l
 nnoremap <leader>z :ls<cr>:b<space>
 
 "quick vimrc access
-nmap <Leader>ev :tabedit $MYVIMRC<cr>						
+nnoremap <Leader>ev :tabedit $MYVIMRC<cr>						
 
 "remove search highlights
 nnoremap <Leader><space> :nohlsearch<cr>						
 
 "Quick access to command mode
-nmap <space> :
+nnoremap <space> :
 
 "Bubble single lines (kicks butt)  
 nnoremap <C-I> ddkP  
 nnoremap <C-N> ddp  
 
 "fast saving
-nmap <leader>w :w!<cr> 
+nnoremap <leader>w :w!<cr> 
 
 "saving files that need sudo access
 nmap <leader><leader>s :w !sudo tee %<CR>
