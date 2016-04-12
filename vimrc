@@ -1,5 +1,3 @@
-set nocompatible						"Set Vim to not be compatible with vi. This is better
-filetype off							"required for Vundle
 
 
 "------------------------------------------ VUNDLE -----------------------------------------"
@@ -13,6 +11,7 @@ Plugin 'vim-scripts/AutoClose'
 Plugin 'tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'zhaocai/GoldenView.Vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -23,7 +22,9 @@ syntax enable
 
 set backspace=indent,eol,start          "Make backspace like other editors
 let mapleader = ','                     "Set leader key to comma
-set nonumber                              "Add line numbers
+set number                            "Add line numbers
+set relativenumber                      "faster line movement with relative numbers
+set noruler                             "remove ruler from command line
 set linespace=15                        "GUI-specific line height
 set nowrap                              "no line wrapping
 set timeoutlen=200
@@ -50,16 +51,16 @@ colorscheme atom-dark-256				"Set color theme
 set guifont=Fira_Code					"Set Font
 
 "fake custom left padding for each window
-hi LineNr ctermbg=bg                                   
-set foldcolumn=2
-hi foldcolumn ctermbg=bg
+" hi LineNr ctermbg=bg                                   
+" set foldcolumn=2
+" hi foldcolumn ctermbg=bg
 
 "remove split bar
-hi vertsplit ctermfg=bg ctermbg=bg
+" hi vertsplit ctermfg=bg ctermbg=bg
 
 ""
-hi StatusLine ctermfg=grey ctermbg=bg
-hi StatusLineNC ctermfg=bg ctermbg=grey
+" hi StatusLine ctermfg=grey ctermbg=bg
+" hi StatusLineNC ctermfg=bg ctermbg=grey
 
 
 
@@ -74,6 +75,9 @@ set smartcase
 "----------- Window Splits ------------"
 set splitbelow							"horizontal splits open below current buffer
 set splitright							"vertical splits open to the right of current bufer
+
+"disable GoldenView mappings
+let g:goldenview__enable_default_mapping = 0 
 
 "easier split navigation
 nnoremap <C-h> <C-W>h
@@ -97,8 +101,8 @@ nmap <Leader><space> :nohlsearch<cr>
 nmap <space> :
 
 "Bubble single lines (kicks butt)  
-nnoremap <C-B> ddkP  
-nnoremap <C-A> ddp  
+nnoremap <C-I> ddkP  
+nnoremap <C-N> ddp  
 
 "fast saving
 nmap <leader>w :w!<cr> 
