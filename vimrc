@@ -1,10 +1,10 @@
-set nocompatible						"Set Vim to not be compatible with vi. This is better
-filetype off							"required for Vundle
 
 
 "------------------------------------------ VUNDLE -----------------------------------------"
 set rtp+=~/.vim/bundle/Vundle.vim			"Set the runtime path to include Vundle and initialize
 call vundle#begin()
+set nocompatible						"Set Vim to not be compatible with vi. This is better
+filetype off							"required for Vundle
 
 Plugin 'VundleVim/Vundle.vim'				"let Vundle manage Vundle, required
 Plugin 'tpope/vim-vinegar'
@@ -55,17 +55,17 @@ set foldcolumn=2
 hi foldcolumn ctermbg=bg
 
 "remove split bar
-hi vertsplit ctermfg=bg ctermbg=bg
+ hi vertsplit ctermfg=bg ctermbg=bg
 
-""
+
 hi StatusLine ctermfg=grey ctermbg=bg
 hi StatusLineNC ctermfg=bg ctermbg=grey
 
 
 
 "----------- Searching ------------"
-set hlsearch							"highlight all search results
 set incsearch							"remove highlights
+set hlsearch							"highlight all search results
 set ignorecase
 set smartcase
 
@@ -91,14 +91,14 @@ nnoremap <leader>z :ls<cr>:b<space>
 nmap <Leader>ev :tabedit $MYVIMRC<cr>						
 
 "remove search highlights
-nmap <Leader><space> :nohlsearch<cr>						
+nnoremap <Leader><space> :nohlsearch<cr>						
 
 "Quick access to command mode
 nmap <space> :
 
 "Bubble single lines (kicks butt)  
-nnoremap <C-B> ddkP  
-nnoremap <C-A> ddp  
+nnoremap <C-Y> ddkP  
+nnoremap <C-I> ddp  
 
 "fast saving
 nmap <leader>w :w!<cr> 
@@ -106,12 +106,15 @@ nmap <leader>w :w!<cr>
 "saving files that need sudo access
 nmap <leader><leader>s :w !sudo tee %<CR>
 
+"remap emmet. NOTE: still requires leader at the end 
+let g:user_emmet_leader_key='<C-D>'
+
 
 
 "----------- Auto-Commands ------------"
 "source vimrc after save
-augroup autosourcing
-	autocmd!
+ augroup autosourcing
+ 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup end
 
